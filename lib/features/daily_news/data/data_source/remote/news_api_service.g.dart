@@ -48,25 +48,6 @@ class _NewsApiService implements NewsApiService {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    print(
-        '==================================================================================');
-    final temp = _result.data!['articles'][0];
-    print(temp['author']);
-    ArticleModel model = ArticleModel(
-      sourceId: 'Source Id',
-      sourceName: 'Source Name',
-      author: 'author',
-      title: 'title',
-      description: 'description',
-      url: 'url',
-      urlToImage: 'urlToImage',
-      publishedAt: 'publishedAt',
-      content: 'content',
-    );
-    print(model);
-    print(
-        '==================================================================================');
-    // TODO: Error occurrs here
     List<ArticleModel> value = _result.data!['articles']
         .map<ArticleModel>(
             (dynamic i) => ArticleModel.fromJson(i as Map<String, dynamic>))
